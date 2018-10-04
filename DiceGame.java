@@ -12,6 +12,8 @@ import java.util.Scanner;
 public class DiceGame {
 
 	public static void main(String[] args) {
+		int tries = 1;
+		
 		System.out.println("This is a game about guessing numbers.");
 		System.out.println();
 		Scanner scanner = new Scanner(System.in);
@@ -19,11 +21,11 @@ public class DiceGame {
 		int random = new Random().nextInt(6) + 1;
 		System.out.println("Enter a random number between 1 and 6.");
 		
-		
 		do{
 			int user = scanner.nextInt();
 			if(random == user) {
 				System.out.println("You got it !");
+				System.out.println("You took " + tries + " tries. ");
 				break;
 			}
 			else if(user > 6) {
@@ -31,6 +33,7 @@ public class DiceGame {
 			}
 			else{
 				System.out.println("Keep Trying !");
+				tries++;
 			}
 			
 		}while(true);
